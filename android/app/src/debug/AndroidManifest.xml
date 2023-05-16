@@ -1,0 +1,6 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="magento.two.quiz.app.za">
+  <!-- Flutter needs it to communicate with the running application to allow setting breakpoints, to provide hot reload, etc. -->
+  <uses-permission android:name="android.permission.INTERNET"/>
+   <meta-data android:name="com.google.android.gms.ads.APPLICATION_ID" android:value="ca-app-pub-4029429063328473~1032539477"/>
+   <meta-data android:name="com.google.android.gms.ads.AD_MANAGER_APP" android:value="true"/>
+</manifest>
