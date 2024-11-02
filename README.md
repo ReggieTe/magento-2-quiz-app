@@ -1,6 +1,6 @@
 <h1 align="center">Magento 2 Quiz App</h1>
 
-Practice and test your magento 2 knowledge by answering questions in a quiz application made with [Flutter](https://flutter.dev/docs/get-started/install).
+Practice and test your magento 2 knowledge by answering questions in a quiz application 
 
 ## User Stories
 -   [X] User can start the quiz by pressing a `button`

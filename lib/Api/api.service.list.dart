@@ -5,12 +5,12 @@ class APIServiceList {
   
 
   Future<ResponseModel> getUpdates(GetRequestModel requestModel) async {
-    String url = "http://quizapp.jiriapp.com/api/v1/check/updates";
+    String url = "http://quizapp.rtembachako.com/api/v1/check/updates";
     return processRequest(requestModel, url);
   }
 
   Future<ResponseModel> getQuestions(GetRequestModel requestModel) async {
-    String url = "http://quizapp.jiriapp.com/api/v1/get/questions";
+    String url = "http://quizapp.rtembachako.com/api/v1/get/questions";
     return processRequest(requestModel, url);
   }
 
@@ -31,8 +31,8 @@ bool testNoExc = false;
       try {
         final response =
             await http.post(Uri.parse(url), body: requestModel.toJson());
-        print(url);
-        print(response.body);
+        // print(url);
+        // print(response.body);
         if (response.statusCode == 200 || response.statusCode == 400) {
           return ResponseModel.fromJson(response.body);
         } else {
@@ -41,7 +41,7 @@ bool testNoExc = false;
               "Server failed to load request.Please try again");
         }
       } catch (e) {
-        print(e.toString());
+        // print(e.toString());
         return ResponseModel.error("Critical : " + e.toString());
       }
     }

@@ -5,11 +5,10 @@ import 'package:quiz_app/screens/result.dart';
 import 'package:quiz_app/screens/start.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
-
 Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await MobileAds.instance.initialize();  
-  runApp(MyApp());
+   WidgetsFlutterBinding.ensureInitialized();
+  await MobileAds.instance.initialize(); 
+   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -18,9 +17,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Magento 2 Quiz App',
       theme: ThemeData(
-        brightness: Brightness.light,
-        backgroundColor: Color.fromRGBO(37, 44, 74, 1.0),
+        brightness: Brightness.light,        
         primaryColor: Colors.lightBlue,
+        colorScheme: ColorScheme.fromSwatch().copyWith(surface: Color.fromRGBO(37, 44, 74, 1.0)),
       ),
       debugShowCheckedModeBanner: false,
       routes: {

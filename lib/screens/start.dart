@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:quiz_app/Class/StartTestArguments.dart';
 import 'package:quiz_app/components/custom_button.dart';
 import 'package:quiz_app/screens/quiz.dart';
@@ -37,7 +38,7 @@ class _StartState extends State<Start> {
 
   void checkUpdates() async {
     GetRequestModel requestModel =
-        new GetRequestModel(authid:appKey, section: '', count: '');
+        new GetRequestModel(authid:dotenv.get('API_KEY'), section: '', count: '');
     setState(() {
       isApiCallProcess = true;
     });
@@ -74,7 +75,7 @@ class _StartState extends State<Start> {
     ThemeData theme = Theme.of(context);
     Size screen = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: theme.backgroundColor,
+      backgroundColor: theme.colorScheme.surface,
       body: SafeArea(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

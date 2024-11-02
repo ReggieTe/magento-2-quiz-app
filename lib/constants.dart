@@ -8,4 +8,3 @@ const String banneriOS = 'ca-app-pub-3940256099942544/2934735716';
 const String InterstitialBanneriOS = "ca-app-pub-3940256099942544/4411468910";
 const String rewardBanneriOS = "ca-app-pub-3940256099942544/1712485313";
 const double appVersion = 1.0;
-const String appKey = "AIzaSyA84_PFQQGykqnm3wnWNOXckY3uDF57pkI";

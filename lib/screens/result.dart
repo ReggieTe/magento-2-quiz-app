@@ -15,7 +15,7 @@ class Result extends StatelessWidget {
     double percentage =  corrects!=0 ? corrects/listLength * 100 : 0.0;
 
     return Scaffold(
-      backgroundColor: theme.backgroundColor,
+      backgroundColor: theme.colorScheme.surface,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

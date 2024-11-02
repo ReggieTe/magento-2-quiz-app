@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:quiz_app/Api/api.service.list.dart';
 import 'package:quiz_app/Api/responseModel.dart';
 import 'package:quiz_app/Class/Question.dart';
@@ -10,7 +11,6 @@ import 'package:quiz_app/components/progress_loader.dart';
 import 'package:quiz_app/components/quiz_option.dart';
 import 'package:quiz_app/screens/start.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
-import 'package:quiz_app/constants.dart';
 import 'package:intl/intl.dart';
 import 'dart:async';
 
@@ -27,6 +27,7 @@ class _QuizState extends State<Quiz> {
   BannerAd? _bannerAd;
   final formKey = GlobalKey<FormState>();
   InterstitialAd? _interstitialAd;
+  
   late List<Question> questions;
   late List currentCorrectAnswers;
   late String currentTitle;
@@ -140,7 +141,7 @@ class _QuizState extends State<Quiz> {
     String count = widget.startValues.count;
     showAnswers = widget.startValues.showCorrectAnswers == 'Yes' ? true : false;
     GetRequestModel requestModel =
-        new GetRequestModel(authid:appKey, section: section, count: count);
+        new GetRequestModel(authid:dotenv.get('API_KEY'), section: section, count: count);
     setState(() {
       isApiCallProcess = true;
     });
@@ -249,7 +250,7 @@ class _QuizState extends State<Quiz> {
   Widget _uiSetup(BuildContext context) {
     ThemeData theme = Theme.of(context);
     return Scaffold(
-      backgroundColor: theme.backgroundColor,
+      backgroundColor: theme.colorScheme.background,
       body: SafeArea(
         child:
         this.questions.isNotEmpty
@@ -390,11 +391,11 @@ class _QuizState extends State<Quiz> {
                                      
                                     if (!this.showAnswers) {
                                       if (this.selectedAnswers.isNotEmpty){
-                                        // if(this.currentQuestion%4 == 0){
-                                        //   if (_interstitialAd != null) {
-                                        //         _interstitialAd?.show();
-                                        //       }
-                                        // }
+                                        if(this.currentQuestion%4 == 0){
+                                          if (_interstitialAd != null) {
+                                                _interstitialAd?.show();
+                                              }
+                                        }
                                           this.verifyAndNext(context);
                                       }else{
                                         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
